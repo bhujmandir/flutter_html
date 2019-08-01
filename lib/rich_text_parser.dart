@@ -241,6 +241,9 @@ class HtmlRichTextParser extends StatelessWidget {
     "thead",
     "tr",
     "q",
+    "definition",
+    "phrase",
+    "person",
   ];
 
   // block elements are always rendered with a new
@@ -570,11 +573,20 @@ class HtmlRichTextParser extends StatelessWidget {
         // should support "a","br","table","tbody","thead","tfoot","th","tr","td"
 
         switch (node.localName) {
+          case "definition":
+          case "phrase":
+          case "person":
           case "a":
             // if this item has block children, we create
             // a container and gesture recognizer for the entire
             // element, otherwise, we create a LinkTextSpan
-            String url = node.attributes['href'] ?? null;
+            String url;
+
+            if (["definition", "phrase", "person"].contains(node.localName)) {
+              url = '${node.localName}|${node.attributes['id']}';
+            } else {
+              url = node.attributes['href'] ?? null;
+            }
 
             if (_hasBlockChild(node)) {
               LinkBlock linkContainer = LinkBlock(
