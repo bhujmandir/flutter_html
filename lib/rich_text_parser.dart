@@ -583,7 +583,7 @@ class HtmlRichTextParser extends StatelessWidget {
             String url;
 
             if (["definition", "phrase", "person"].contains(node.localName)) {
-              url = '${node.localName}-${node.attributes['id']}';
+              url = '${node.localName}_${node.attributes['id']}';
             } else {
               url = node.attributes['href'] ?? null;
             }
