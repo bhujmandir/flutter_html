@@ -1,3 +1,100 @@
+## [2.0.0] - April 29, 2021:
+* Stable release with all 2.0.0-nullsafety.X changes
+
+## [2.0.0-nullsafety.1] - April 29, 2021:
+* Support basic MathML
+* Support inner links
+* Supply full context tree to custom render
+* Include or exclude specific tags via `tagsList` parameter
+* Fixed lists not rendering correctly
+* Fixes for colspans in tables
+* Fixed various exceptions when using inline styles
+* Fixed text decoration not cascading between parent and child
+* [BREAKING] support whitelisting tags
+   * See the README for details on how to migrate `blacklistedElements` (deprecated) to `tagsList`
+*  Fixed `failed assertion` error when tap-scrolling on any link
+* Updated dependencies
+
+## [2.0.0-nullsafety.0] - March 5, 2021:
+* Nullsafety support
+* Official Flutter Web support
+* New features & fixes for lists:
+   * Support start attribute (e.g. `start="5";`)
+   * Support RTL direction
+   * Support setting padding - you can remove the starting padding if you choose
+   * Fixed unknown character box on iOS when font-weight is below w400
+* Upgraded link functions to provide more granular control
+* Fixed errors in text-decoration parsing
+* Fixed `<audio>` on iOS ("_duration called on null" exception)
+* Updated dependencies
+
+## [1.3.0] - February 16, 2021:
+* New image loading API
+* Image loading with request headers, from relative paths and custom loading widget
+* SVG image support from network or local assets
+* Support for `<details>`/`<summary>` tags
+* Allow returning spans from custom tag renders
+* Inline font styling
+* Content-based table column sizing
+* Respect iframe sandbox attribute
+* Fixed text flow and styling when using tags inside `<a>` links
+* Fixed issue where `shrinkWrap` property would not constrain the widget to take up the space it needs
+  * See the [Notes](https://github.com/Sub6Resources/flutter_html#notes) for an example usage with `shrinkWrap`
+* Fixed issue where iframes would not update when their `src`s changed in the HTML data
+* Updated dependencies for Flutter 1.26+
+
+## [1.2.0] - January 14, 2021:
+* Support irregular table sizes
+* Allow for returning `null` from a customRender function to disable the widget
+
+## [1.1.1] - November 22, 2020:
+* Update dependencies
+
+## [1.1.0] - November 22, 2020:
+* Add support for inline styles
+* Update dependencies
+
+## [1.0.2] - August 8, 2020:
+* Fix text scaling issues
+* Update dependencies
+
+## [1.0.1] - August 8, 2020:
+* Fixed flutter_svg: ^0.18.0
+
+# [1.0.0]
+* BREAKING CHANGES (see the [Migration Guide](https://github.com/Sub6Resources/flutter_html/wiki/1.0.0-Migration-Guide) for a full overview of breaking changes.):
+  * The default parser has been completely rewritten and the RichText parser has been removed.
+  * `useRichText` no longer is necessary (The new parser uses RichText under the hood)
+  * `customRender` now works for the default parser.
+* Adds support for `<audio>`, `<video>`, `<iframe>`, `<svg>`, `<ruby>`, `<rt>`, `<rp>`, `<sub>`, and `<sup>`
+* Adds support for over 20 CSS attributes when using the `style` parameter.
+* Fixes many many issues (see the list at [#122](https://github.com/Sub6Resources/flutter_html/pull/122))
+* The following parameters of `Html` have been removed and should no longer be used (see the migration guide):
+  * `useRichText`
+  * `padding`
+  * `backgroundColor`
+  * `defaultTextStyle`
+  * `renderNewlines`
+  * `customEdgeInsets`
+  * `customTextStyle`
+  * `blockSpacing`
+  * `customTextAlign`
+  * `linkStyle`
+  * `imageProperties`
+  * `showImages`
+* The default text style now matches the app's Material `TextTheme.bodyText2` (Fixes [#18](https://github.com/Sub6Resources/flutter_html/issues/18)).
+* Requires Flutter v1.17.0 or greater
+* Fixed quite a few issues with `img`
+* Added a fancy new `style` attribute (this should be used in place of the deprecated styling parameters).
+
+## [1.0.0-pre.1] - December 27, 2019
+
+* For a list of pre-release changes, including several BREAKING CHANGES, see release notes for 1.0.0 above.
+
+## [0.11.1] - December 14, 2019:
+
+* Add support for `AssetImage`s using the `asset:` prefix ([#162](https://github.com/Sub6Resources/flutter_html/pull/162)).
+
 ## [0.11.0] - September 10, 2019:
 
 * Make it so `width=100%` doesn't throw error. Fixes [#118](https://github.com/Sub6Resources/flutter_html/issues/118).
@@ -38,7 +135,6 @@
 * Add support for `address` tag in `RichText` parser.
 
 ## [0.9.7] - May 13, 2019:
-
 * Added onImageError callback
 * Added custom textstyle and edgeinsets callback ([#72](https://github.com/Sub6Resources/flutter_html/pull/72))
 * Update dependency versions ([#84](https://github.com/Sub6Resources/flutter_html/issues/84))
