@@ -106,6 +106,9 @@ const BLOCK_ELEMENTS = [
 
 const INTERACTABLE_ELEMENTS = [
   "a",
+  "definition", 
+  "phrase",
+  "person"
 ];
 
 const REPLACED_ELEMENTS = [

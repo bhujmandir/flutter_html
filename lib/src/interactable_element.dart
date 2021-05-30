@@ -22,14 +22,18 @@ enum Gesture {
   TAP,
 }
 
-InteractableElement parseInteractableElement(
-    dom.Element element, List<StyledElement> children) {
+InteractableElement parseInteractableElement(dom.Element element, List<StyledElement> children) {
+  
+  String url = element.localName = "a" ? element.attributes['href'] : "${node.localName}_${node.id}";
   switch (element.localName) {
     case "a":
+    case "definition":
+    case "phrase":
+    case "person":
       return InteractableElement(
         name: element.localName!,
         children: children,
-        href: element.attributes['href'],
+        href: url,
         style: Style(
           color: Colors.blue,
           textDecoration: TextDecoration.underline,
