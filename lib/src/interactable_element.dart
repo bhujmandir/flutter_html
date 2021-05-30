@@ -23,33 +23,31 @@ enum Gesture {
 }
 
 InteractableElement parseInteractableElement(dom.Element element, List<StyledElement> children) {
-  
-  String url = element.localName = "a" ? element.attributes['href'] : "${node.localName}_${node.id}";
+  String? url = element.localName == "a" ? element.attributes['href'] : "${element.localName}_${element.id}";
   switch (element.localName) {
     case "a":
     case "definition":
     case "phrase":
     case "person":
       return InteractableElement(
-        name: element.localName!,
-        children: children,
-        href: url,
-        style: Style(
-          color: Colors.blue,
-          textDecoration: TextDecoration.underline,
-        ),
-        node: element,
-        elementId: element.id
-      );
+          name: element.localName!,
+          children: children,
+          href: url,
+          style: Style(
+            color: Colors.blue,
+            textDecoration: TextDecoration.underline,
+          ),
+          node: element,
+          elementId: element.id);
+
     /// will never be called, just to suppress missing return warning
     default:
       return InteractableElement(
-        name: element.localName!,
-        children: children,
-        node: element,
-        href: '',
-        style: Style(),
-        elementId: "[[No ID]]"
-      );
+          name: element.localName!,
+          children: children,
+          node: element,
+          href: '',
+          style: Style(),
+          elementId: "[[No ID]]");
   }
 }
